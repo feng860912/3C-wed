@@ -1,15 +1,15 @@
- /* Add a gray background color and some padding to the footer */
+ /* 為頁尾添加灰色背景顏色和一些填充 */
  footer {
-    background-color: #f2f2f2;
+    background-color: #666565;
     padding: 25px;
   }
 
   .carousel-inner img {
-    width: 100%; /* Set width to 100% */
+    width: 100%; /* 設定寬度為100% */
     min-height: 200px;
   }
 
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  /* 當螢幕寬度小於600像素時隱藏輪播文本 */
   @media (max-width: 600px) {
     .carousel-caption {
       display: none; 
