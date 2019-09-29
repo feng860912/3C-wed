@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>3C購物網站</title>
   <meta charset="utf-8">
@@ -7,101 +8,103 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet2" href="css/main.css">
   <link rel="stylesheet3" href="../css/sweetalert.css">
-  
+
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">首頁</a>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">首頁</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">關於</a></li>
+          <li><a href="#">產品</a></li>
+          <li><a href="#">購物車</a></li>
+          <li><a href="#">會員中心</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登入</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">關於</a></li>
-        <li><a href="#">產品</a></li>
-        <li><a href="#">購物車</a></li>
-        <li><a href="#">會員中心</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登入</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<!--中間內文區開始-->
-<div class="container">
+  </nav>
+  <!--中間內文區開始-->
+  <div class="container">
+
     <div class="row no-gutters">
       <div class="col-6 col-md-4">
-          <h2>註冊表單測試</h2>
-          <p>測試測試</p>
-          <form>
-              <div class="form-group">
-                <label for="usr">帳號:</label>
-                <input type="text" class="form-control" id="usr">
-              </div>
-              <div class="form-group">
-                <label for="pwd">密碼:</label>
-                <input type="password" class="form-control" id="pwd">
-              </div>
-              <div class="form-group">
-                <label for="ckpwd">確認密碼:</label>
-                <input type="password" class="form-control" id="pwd-2">
-              </div>
-              <div class="form-group">
-                <label for="name">姓名:</label>
-                <input type="text" class="form-control" id="name">
-              </div>
-              <div class="form-group">
-                <label for="id">身分證字號:</label>
-                <input type="text" class="form-control" id="id">
-              </div>
-              <div class="form-group">
-                <label for="phone">手機號碼:</label>
-                <input type="text" class="form-control" id="phone">
-              </div>
-              <div class="form-group">
-                <label for="address">地址:</label>
-                <input type="text" class="form-control" id="address">
-              </div>
-              <div class="form-group">
-                <label for="email">信箱:</label>
-                <input type="text" class="form-control" id="email">
-              </div>
-              <div class="row align-items-center remember">
-                <input type="checkbox"> 我已詳細閱讀並同意《服務條款》
+        <h2>註冊表單</h2>
+        <p>測試測試</p>
+        <form>
+          <div class="form-group">
+            <label for="usr">帳號:</label>
+            <input type="text" class="form-control" id="usr">
+          </div>
+          <div class="form-group">
+            <label for="pwd">密碼:</label>
+            <input type="password" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+            <label for="ckpwd">確認密碼:</label>
+            <input type="password" class="form-control" id="pwd-2">
+          </div>
+          <div class="form-group">
+            <label for="name">姓名:</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="form-group">
+            <label for="id">身分證字號:</label>
+            <input type="text" class="form-control" id="id">
+          </div>
+          <div class="form-group">
+            <label for="phone">手機號碼:</label>
+            <input type="text" class="form-control" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="address">地址:</label>
+            <input type="text" class="form-control" id="address">
+          </div>
+          <div class="form-group">
+            <label for="email">信箱:</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="row align-items-center remember">
+            <input type="checkbox"> 我已詳細閱讀並同意《服務條款》
+          </div>
+          <div class="form-group row ">
+            <div class=" col-sm-10 offset-sm-2 ">
+              <button type="submit" class="btn btn-primary ">取消</button>
+              <button type="submit" class="btn btn-primary ">註冊</button>
             </div>
-              <div class="form-group row ">
-                <div class=" col-sm-10 offset-sm-2 ">
-                  <button type="submit" class="btn btn-primary ">取消</button>
-                  <button type="submit" class="btn btn-primary ">註冊</button>
-                </div>
-              </div>
-              <div class="card-footer">
-                  <div class="d-flex justify-content-center links">
-                    Don't have an account?<a href="#">Sign Up</a>
-                  </div>
-                  <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
-                  </div>
-                </div>
-          </form>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+              Don't have an account?<a href="#">Sign Up</a>
+            </div>
+            <div class="d-flex justify-content-center">
+              <a href="#">Forgot your password?</a>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
-<!--中間內文區結束-->
+  <!--中間內文區結束-->
 
-<footer class="container-fluid text-center ">
+  <footer class="container-fluid text-center ">
     <div class="container">
-      <p>聯絡我們</p> <!--要加底色-->
+      <p>聯絡我們</p>
+      <!--要加底色-->
       <p>地址：高雄市鳥松區澄清路XXX號</p>
-      <p>電話：07-0000-000</p> 
+      <p>電話：07-0000-000</p>
     </div>
   </footer>
 
@@ -112,4 +115,5 @@
   <script src="../js/sweetalert-dev.js"></script>
 
 </body>
+
 </html>
