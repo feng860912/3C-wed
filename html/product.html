@@ -2,140 +2,255 @@
 <html lang="en">
 
 <head>
-    <title>3C購物網站</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet2" href="css/main.css">
-    <link rel="stylesheet3" href="../css/sweetalert.css">
+  <title>3C購物網站</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
 
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/6.6.1/firebase-app.js"></script>
+  <script src="/__/firebase/7.0.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.0.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.0.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/7.0.0/firebase-storage.js"></script>
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
 
+  <style>
+    .panel {
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    }
+
+    .panel-info {
+      border-color: #bce8f1;
+    }
+
+    .panel-heading {
+      padding: 10px 15px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+
+    .panel-info>.panel-heading {
+      color: #31708f;
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+    }
+
+    .panel-body {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .panel-footer {
+      padding: 10px 15px;
+      background-color: #f5f5f5;
+      border-top: 1px solid #ddd;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    .btn_v3 {
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      border-radius: 4px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .btn-default_v3 {
+      color: #333;
+      background-color: #fff;
+      border-color: #ccc;
+    }
+
+    .btn-block_v3 {
+      display: block;
+      width: 100%;
+    }
+
+    .btn-block_v3+.btn-block_v3 {
+      margin-top: 5px;
+    }
+  </style>
 </head>
 
-
 <body>
-
-
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">首頁</a>
-        <button class=" navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="../Products">商品</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">購物車</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Member">會員中心</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a id="loginA" class="nav-link" href="../Login">
-                        <div id="loginState" style="display: inline-block;">登入</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!--中間內文區開始-->
-
-    <div class="container">
-        <div class="col-sm-3">
-            <!-- <div class="well">目前裝置連線狀況</div> -->
-            <div class="panel panel-info">
-                <div class="panel-heading">產品一</div>
-                <div class="panel-body">
-                    <img src="https://placehold.it/200x200?text=IMAGE" alt="..." class="img-thumbnail">
-                    <div class="col-sm-3">
-                        <h4><span class="glyphicon glyphicon-usd">1000</span></h2>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <button class="btn btn-default btn-block">立即購買</button>
-                    <button class="btn btn-default btn-block">
-                        <span class="glyphicon glyphicon-shopping-cart">&nbsp加入購物車</span>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <!-- <div class=" well">目前裝置連線狀況</div> -->
-            <div class="panel panel-info">
-                <div class="panel-heading">產品二</div>
-                <div class="panel-body">
-                    <img src="https://placehold.it/200x200?text=IMAGE" alt="..." class="img-thumbnail">
-                    <div class="col-sm-3">
-                        <h4><span class="glyphicon glyphicon-usd">1000</span></h2>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <button class="btn btn-default btn-block">立即購買</button>
-                    <button class="btn btn-default btn-block">
-                        <span class="glyphicon glyphicon-shopping-cart">&nbsp加入購物車</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <!-- <div class="well">目前裝置連線狀況</div> -->
-            <div class="panel panel-info">
-                <div class="panel-heading">產品三</div>
-                <div class="panel-body">
-                    <img src="https://placehold.it/200x200?text=IMAGE" alt="..." class="img-thumbnail">
-                    <div class="col-sm-3">
-                        <h4><span class="glyphicon glyphicon-usd">1000</span></h2>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <button class="btn btn-default btn-block">立即購買</button>
-                    <button class="btn btn-default btn-block">
-                        <span class="glyphicon glyphicon-shopping-cart">&nbsp加入購物車</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <!-- <div class="well">目前裝置連線狀況</div> -->
-            <div class="panel panel-info">
-                <div class="panel-heading">產品四</div>
-                <div class="panel-body">
-                    <img src="https://placehold.it/200x200?text=IMAGE" alt="..." class="img-thumbnail">
-                    <div class="col-sm-3">
-                        <h4><span class="glyphicon glyphicon-usd">1000</span></h2>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <button class="btn btn-default btn-block">立即購買</button>
-                    <button class="btn btn-default btn-block">
-                        <span class="glyphicon glyphicon-shopping-cart">&nbsp加入購物車</span>
-                    </button>
-                </div>
-            </div>
-        </div>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">首頁</a>
+    <button class=" navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="../Products">商品</a>
+        </li>
+        <li class="nav-item">
+          <a id="sCart_nav" class="nav-link" href="../ShoppingCart">購物車</a>
+        </li>
+        <li class="nav-item">
+          <a id="profile_nav" class="nav-link" href="../Proflie">會員中心</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <a id="loginA" class="nav-link" href="../Login">
+            <div id="loginState" style="display: inline-block;">登入</div>
+          </a>
+        </li>
+      </ul>
     </div>
-    <!--中間內文區結束-->
+  </nav>
+  <!--中間內文區開始-->
 
-    <!-- <div class="jumbotron text-center" style="margin-bottom:0">
+  <div class="container">
+      <div class="row" style="margin-top: 2%;">
+          <div class="col-lg-12">
+              <div class="row">
+                  <div class="col-3">
+                      <button type="button" class="btn btn-primary" style="width: 100%;">電腦專區</button>
+                  </div>
+                  <div class="col-3">
+                      <button type="button" class="btn btn-primary" style="width: 100%;">手機專區</button>
+                  </div>
+                  <div class="col-3">
+                      <button type="button" class="btn btn-primary" style="width: 100%;">耳機專區</button>
+                  </div>
+                  <div class="col-3">
+                      <button type="button" class="btn btn-primary" style="width: 100%;">滑鼠專區</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    <div id="productBox" class="row" style="margin-top: 20px;">
+
+    </div>
+  </div>
+  <!--中間內文區結束-->
+
+  <!-- <div class="jumbotron text-center" style="margin-bottom:0">
             <div class="container">
             <p>聯絡我們</p>
             
             <p>地址：高雄市鳥松區澄清路XXX號</p>
             <p>電話：07-0000-000</p>
           </div> -->
+  <script>
+    // Initialize Cloud Firestore through Firebase
+    // firebase.initializeApp({
+    //     apiKey: 'AIzaSyARPfmpl-PlhBpthrdRNghpZT1mDA0Y0tc',
+    //     authDomain: 'rwd-3c-shop.firebaseapp.com',
+    //     projectId: 'rwd-3c-shop'
+    // });
+    var db = firebase.firestore();
+    db.collection('product').onSnapshot(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        addDiv(doc.id, doc.data().name, doc.data().price, doc.data().img);
+      });
+    });
+  </script>
+  <script>
+    function addDiv(id, name, price, img) {
+      //找到要新增節點的父節點
+      var productBox = document.getElementById("productBox");
+      // //新增一個文字框節點，設定id和type屬性
+      // var newTp = document.createElement("input");
+      // newTp.id = "text1";
+      // newTp.type = "text";
+      // //新增一個按鈕
+      // var newEl = document.createElement("input");
+      // newEl.type = 'button';
+      // newEl.value = "button";
+      // newEl.name = "button1";
+      // //新增onclick事件,和事件執行的函式
+      // newEl.onclick = function dofun() {
+      //     document.getElementById("txt").value = newTp.value;
+      // }
+      var box_1 = document.createElement("div");
+      box_1.classList.add("col-lg-3");
+      box_1.classList.add("col-md-6");
+      box_1.classList.add("col-sm-12");
+      var box_2 = document.createElement("div");
+      box_2.classList.add("panel");
+      box_2.classList.add("panel-info");
+      var box_3 = document.createElement("div");
+      box_3.classList.add("panel-heading");
+      box_3.innerHTML = name;
+      var box_4 = document.createElement("div");
+      box_4.classList.add("panel-body");
+      var img_1 = document.createElement("img");
+      img_1.classList.add("img-thumbnail");
+      img_1.style.width = 200 + "px";
+      img_1.style.height = 200 + "px"
+      if (img != "") {
+        img_1.src = img;
+      } else {
+        img_1.src = "https://placehold.it/200x200?text=IMAGE"
+      }
+      var box_5 = document.createElement("div");
+      box_5.classList.add("col-sm-12");
+      box_5.classList.add("text-center");
+      box_5.style.fontSize = 1.5 + 'rem';
+      box_5.innerHTML = '$' + price;
+      var box_6 = document.createElement("div");
+      box_6.classList.add("panel-footer");
+      var button_1 = document.createElement("button");
+      button_1.classList.add("btn_v3");
+      button_1.classList.add("btn-default_v3");
+      button_1.classList.add("btn-block_v3");
+      button_1.onclick = function sellPage() {
+        location = '/sell/' + id;
+      }
+      button_1.innerHTML = "立即購買";
+      var button_2 = document.createElement("button");
+      button_2.classList.add("btn_v3");
+      button_2.classList.add("btn-default_v3");
+      button_2.classList.add("btn-block_v3");
+      var span_2 = document.createElement("span");
+      span_2.classList.add("glyphicon");
+      span_2.classList.add("glyphicon-shopping-cart");
+      span_2.innerHTML = "&nbsp加入購物車";
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="../js/sweet-alert.js"></script>
-    <script src="../js/sweetalert-dev.js"></script>
-
-
+      box_4.appendChild(img_1);
+      box_4.appendChild(box_5);
+      button_2.appendChild(span_2);
+      box_6.appendChild(button_1);
+      box_6.appendChild(button_2);
+      box_2.appendChild(box_3);
+      box_2.appendChild(box_4);
+      box_2.appendChild(box_6);
+      box_1.appendChild(box_2);
+      //把td新增到table中
+      productBox.appendChild(box_1);
+    }
+  </script>
+  <script src="../js/account.js"></script>
 </body>
 
-</html
+</html>

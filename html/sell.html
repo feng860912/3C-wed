@@ -5,18 +5,29 @@
     <title>3C購物網站</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet2" href="css/main.css">
-    <link rel="stylesheet3" href="../css/sweetalert.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/6.6.1/firebase-app.js"></script>
+    <script src="/__/firebase/7.0.0/firebase-auth.js"></script>
+    <script src="/__/firebase/7.0.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.0.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.0.0/firebase-storage.js"></script>
 
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
 </head>
 
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="/">首頁</a>
-        <button class=" navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <button class=" navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -25,10 +36,10 @@
                     <a class="nav-link" href="../Products">商品</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">購物車</a>
+                    <a id="sCart_nav" class="nav-link" href="../ShoppingCart">購物車</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Member">會員中心</a>
+                    <a id="profile_nav" class="nav-link" href="../Proflie">會員中心</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -41,82 +52,89 @@
         </div>
     </nav>
     <!--中間內文區開始-->
-    <div class="container">
-        <div class="col-lg-12">
-            <div class="col-sm-4">
+    <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Product</a></li>
+            <li class="breadcrumb-item active">Data</li>
+        </ol>
+    <div class="container col-sm-12" style="margin-top: 1%;">
+
+      
+               
+
+        <div class="row justify-content-center " style="padding-top: 3%;">
+            <div class="col-lg-3">
                 <div class="panel-body">
-                    <img src="https://placehold.it/800x800?text=IMAGE" alt="..." class="img-thumbnail">
+                    <img id="product_img" src="https://placehold.it/800x800?text=IMAGE" alt="..." class="img-thumbnail">
                     <div class="col-sm-3"></div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="col-sm-4">
-                    <h2>商品標題</h2>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="col-sm-4">
-                    <h4>商品評價</h4>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="col-sm-12" style="background-color:linen;">
-                    <div class="center-block">
-                        <h3>＄1000000</h3>
+                <h2 id="head-text">商品標題</h2>
+                <h4>商品評價 : <span id="rating"></span></h4>
+                <h3 id="price" class="p-2" style="background-color:linen;">＄99999</h3>
+                <div>賣場折價卷</div>
+                <div>剩餘數量 : <span id="amount"></span></div>
+                <div class="input-group spinner">
+                    <div class="input-group-btn-vertical" style="display: flex;width: 26%;">
+                        <button class="btn btn-default" type="button">-<i class="fa fa-caret-down"></i></button>
+                        <input id="order" type="text" class="form-control" value="1" style="text-align: center;">
+                        <button class="btn btn-default" type="button">+<i class="fa fa-caret-up"></i></button>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="col-sm-4">
-                    賣場折價卷
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="col-sm-2">
-                    <label for="sign_times"><span class="hr-span">數量</span></label>
-                </div>
-                <div class="col-sm-8">
-                    <div class="input-group spinner">
-                        <input type="text" class="form-control" value="1">
-                        <div class="input-group-btn-vertical">
-                            <button class="btn btn-default" type="button">+<i class="fa fa-caret-up"></i></button>
-                            <button class="btn btn-default" type="button">-<i class="fa fa-caret-down"></i></button>
-                        </div>
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-4">
+                        <button type="button" class="btn btn-primary" style="width: 100%;">立即購買</button>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="col-sm-4">
-                    <button class="btn btn-default btn-block">立即購買</button>
-                </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-default btn-block">
-                            <span class="glyphicon glyphicon-shopping-cart">&nbsp加入購物車</span>
-                        </button>
+                    <div class="col-4">
+                        <button id="add_sCart" type="button" class="btn btn-primary" style="width: 100%;">加入購物車</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center " style="padding-top: 3%;">
+            <h2>商品評論</h2>
+
+        </div>
+
     </div>
-
-    <!--中間內文區結束-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="../js/sweet-alert.js"></script>
-    <script src="../js/sweetalert-dev.js"></script>
+    <script src="../js/account.js"></script>
     <script>
-        (function($) {
-            $('.spinner .btn:first-of-type').on('click', function() {
-                $('.spinner input').val(parseInt($('.spinner input').val(), 10) + 1);
-            });
-            $('.spinner .btn:last-of-type').on('click', function() {
+        (function ($) {
+            $('.spinner .btn:first-of-type').on('click', function () {
                 $('.spinner input').val(parseInt($('.spinner input').val(), 10) - 1);
             });
+            $('.spinner .btn:last-of-type').on('click', function () {
+                $('.spinner input').val(parseInt($('.spinner input').val(), 10) + 1);
+            });
         })(jQuery);
+
+        var doc = location.pathname.substring(6, location.pathname.length);
+        db.collection('product').doc(doc).onSnapshot(function (doc) {
+            document.getElementById('head-text').innerHTML = doc.data().name;
+            document.getElementById('price').innerHTML = "$" + doc.data().price;
+            document.getElementById('product_img').src = doc.data().img;
+            document.getElementById('rating').innerHTML = doc.data().rating + "/5";
+            document.getElementById('amount').innerHTML = doc.data().amount;
+            document.getElementById('add_sCart').addEventListener('click', function () {
+                add_sCart(doc.data().img, doc.data().name, doc.data().price);
+            })
+        });
+        function add_sCart(img, name, price) {
+            db.collection('account').doc(auth.currentUser.uid).collection('sCart').add({
+                img: img,
+                name: name,
+                price: price,
+                order: Number(document.getElementById('order').value)
+            }).then(function (docRef) {
+                alert("加入成功");
+                location = '/ShoppingCart/' + auth.currentUser.uid;
+            })
+                .catch(function (error) {
+                    console.error("Error adding document: ", error);
+                });
+        }
     </script>
-
-
 </body>
 
-</html
+</html>
