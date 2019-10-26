@@ -53,14 +53,14 @@
     </nav>
     <!--中間內文區開始-->
     <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Product</a></li>
-            <li class="breadcrumb-item active">Data</li>
-        </ol>
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Product</a></li>
+        <li class="breadcrumb-item active">Data</li>
+    </ol>
     <div class="container col-sm-12" style="margin-top: 1%;">
 
-      
-               
+
+
 
         <div class="row justify-content-center " style="padding-top: 3%;">
             <div class="col-lg-3">
@@ -93,13 +93,47 @@
             </div>
         </div>
         <div class="row justify-content-center " style="padding-top: 3%;">
-            <h2>商品評論</h2>
 
+            <div class="row col-sm-8">
+
+                <div class="col-6">
+                    <button type="button" name="intr" onclick="intr()" class="btn btn-primary"
+                        style="width: 100%;">商品介紹</button>
+                </div>
+                <div class="col-6">
+                    <button type="button" name="comment" onclick="comment()" class="btn btn-primary"
+                        style="width: 100%;">商品評論</button>
+                </div>
+            </div>
+            <div class="col-lg-12 card" style="display: block;" id="intr">
+                <div class="card-header">商品介紹</div>
+                <div class="card-body">内容</div>
+            </div>
+            <div class="col-lg-12 card" style="display: none;" id="comment">
+                <div class="card-header">評論內容</div>
+                <div class="card-body">内容</div>
+                <div class="card-body">内容2</div>
+                <div class="card-body">内容3</div>
+            </div>
         </div>
 
     </div>
     <script src="../js/account.js"></script>
     <script>
+
+        function intr() {
+            var intr = document.getElementById("intr");
+            var comment = document.getElementById("comment");
+            intr.style.display="block";
+            comment.style.display="none";
+        }
+        function comment() {
+            var intr = document.getElementById("intr");
+            var comment = document.getElementById("comment");
+            intr.style.display="none";
+            comment.style.display="block";
+        }
+
         (function ($) {
             $('.spinner .btn:first-of-type').on('click', function () {
                 $('.spinner input').val(parseInt($('.spinner input').val(), 10) - 1);
