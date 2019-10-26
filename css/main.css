@@ -1,17 +1,25 @@
- /* 為頁尾添加灰色背景顏色和一些填充 */
- footer {
+/* 為頁尾添加灰色背景顏色和一些填充 */
+
+footer {
     background-color: #666565;
     padding: 25px;
-  }
+}
 
-  .carousel-inner img {
-    width: 100%; /* 設定寬度為100% */
+.carousel-inner img {
+    width: 100%;
+    /* 設定寬度為100% */
     min-height: 200px;
-  }
+}
 
-  /* 當螢幕寬度小於600像素時隱藏輪播文本 */
-  @media (max-width: 600px) {
+
+/* 當螢幕寬度小於600像素時隱藏輪播文本 */
+
+@media (max-width: 600px) {
     .carousel-caption {
-      display: none; 
+        display: none;
     }
-  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}

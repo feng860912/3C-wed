@@ -1,0 +1,40 @@
+<!-- 我用的BS4版本 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- 加到 main.css -->
+<style>
+    .navbar-dark .navbar-nav .nav-link {
+        color: white;
+    }
+</style>
+
+<!-- 貼在 body 內即可 -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">首頁</a>
+    <button class=" navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="../Products">商品</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">購物車</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Member">會員中心</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                <a id="loginA" class="nav-link" href="../Login">
+                    <div id="loginState" style="display: inline-block;">登入</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
